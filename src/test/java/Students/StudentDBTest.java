@@ -13,10 +13,10 @@ class StudentDBTest {
 
         //When
         String expected = "Satoshi";
-        Student[] actual = StudentDB.createStudentArray(newStudents);
+        StudentDB actual = new StudentDB(newStudents);
 
         //Then
-        Assertions.assertEquals(expected,actual[3].getFirstname());
+        Assertions.assertEquals(expected,actual.getStudent(3).getFirstname());
     }
 
 
@@ -27,10 +27,10 @@ class StudentDBTest {
 
         //When
         String expected = "Fabienne";
-        Student[] actual = StudentDB.createStudentArray(newStudents);
+        StudentDB actual = new StudentDB(newStudents);
 
         //Then
-        Assertions.assertEquals(expected,actual[1].getFirstname());
+        Assertions.assertEquals(expected,actual.getStudent(1).getFirstname());
     }
 
 

@@ -11,7 +11,6 @@ public class Student {
     private String location;
     private String subject;
 
-
     public Student(String firstname, String lastname, String location, String subject){
         this.id = UUID.randomUUID().toString();
         this.consecNum = 0;
