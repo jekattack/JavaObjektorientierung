@@ -1,10 +1,10 @@
-package Students2;
+package Students3;
 
-import Students2.Student;
+import Students3.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
+¥
 class StudentDBTest {
 
     @Test
