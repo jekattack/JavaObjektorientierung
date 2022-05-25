@@ -60,4 +60,67 @@ class StudentDBTest {
         Assertions.assertEquals(before, (after+1));
     }
 
+    @Test
+    void shouldThrowRuntimeException(){
+        //Given
+        ArrayList<Student> newStudentsList = new ArrayList<Student>();
+
+        String generatedId1 = UUID.randomUUID().toString();
+        String generatedId2 = UUID.randomUUID().toString();
+        String generatedId3 = UUID.randomUUID().toString();
+        String generatedId4 = UUID.randomUUID().toString();
+
+        Student byeStudent = new MathStudent(generatedId3, "Jack", "Meyers", "Washington", "Algebra");
+
+        newStudentsList.add(new MathStudent(generatedId1, "Sören", "Olfason", "Kopenhagen", "Geometrics"));
+        newStudentsList.add(new MathStudent(generatedId2, "Fabienne", "Crouteau", "Paris", "Statistics"));
+        newStudentsList.add(byeStudent);
+        newStudentsList.add(new MathStudent(generatedId4, "Satoshi", "Yokohama", "Tokio", "Art"));
+
+        StudentDB actual = new StudentDB(newStudentsList);
+
+
+        String generatedId = UUID.randomUUID().toString();
+        Student newStudent = new ArtStudent(generatedId, "Jack", "Meyers", "Washington", "Algebra");
+
+        actual.addStudent(newStudent);
+
+        //When
+
+        try {
+            actual.addStudent(newStudent);
+            Assertions.fail();
+        } catch (Exception e){}
+
+        //Then
+
+
+    }
+
+/*
+    @Test
+    void shouldReturnString(){
+        ArrayList<Student> newStudentsList = new ArrayList<Student>();
+
+        String generatedId1 = UUID.randomUUID().toString();
+        String generatedId2 = UUID.randomUUID().toString();
+        String generatedId3 = UUID.randomUUID().toString();
+        String generatedId4 = UUID.randomUUID().toString();
+
+        Student byeStudent = new MathStudent(generatedId3, "Jack", "Meyers", "Washington", "Algebra");
+
+        newStudentsList.add(new MathStudent(generatedId1, "Sören", "Olfason", "Kopenhagen", "Geometrics"));
+        newStudentsList.add(new MathStudent(generatedId2, "Fabienne", "Crouteau", "Paris", "Statistics"));
+        newStudentsList.add(byeStudent);
+        newStudentsList.add(new MathStudent(generatedId4, "Satoshi", "Yokohama", "Tokio", "Art"));
+
+        StudentDB actual = new StudentDB(newStudentsList);
+
+        String result = newStudentsList.toString();
+
+        System.out.println(result);
+
+    }
+*/
+
 }

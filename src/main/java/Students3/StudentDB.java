@@ -1,6 +1,7 @@
 package Students3;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class StudentDB{
@@ -14,6 +15,10 @@ public class StudentDB{
             studentsMap.put(stud.getId(), stud);
         }
     }
+    StudentDB(Student newStudent){
+        studentsMap.put(newStudent.getId(), newStudent);
+    }
+
     public Student getStudent(String id){
         return studentsMap.get(id);
     }
@@ -21,7 +26,8 @@ public class StudentDB{
         return studentsMap;
     }
     public void addStudent(Student newStudent){
-        this.studentsMap.put(newStudent.getId(), newStudent);
+       if(studentsMap.get(newStudent.getId()) != null) throw new RuntimeException("Student existiert schon. :(");
+       this.studentsMap.put(newStudent.getId(), newStudent);
     }
     public void removeStudent(Student byeStudent){
         studentsMap.remove(byeStudent.getId(), byeStudent);
