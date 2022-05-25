@@ -10,8 +10,8 @@ public abstract class Student{
     protected String location;
     protected String subject;
 
-    public Student(String firstname, String lastname, String location, String subject){
-        this.id = UUID.randomUUID().toString();
+    public Student(String id, String firstname, String lastname, String location, String subject){
+        this.id = id;
         this.consecNum = 0;
         this.firstname = firstname;
         this.lastname = lastname;

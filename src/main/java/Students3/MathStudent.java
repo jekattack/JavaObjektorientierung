@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public class MathStudent extends Student {
 
-    public MathStudent(String firstname, String lastname, String location, String subject){
-        super(firstname, lastname, location, subject);
+    public MathStudent(String id, String firstname, String lastname, String location, String subject){
+        super(id, firstname, lastname, location, subject);
     }
 
     @Override

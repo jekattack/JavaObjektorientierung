@@ -1,15 +1,30 @@
 package Students3;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class StudentDB{
 
-    private Student[] students;
+    // private ArrayList<Student> students;
 
-    StudentDB(Student[] newStudents){
-        this.students = newStudents;
+    private HashMap<String, Student> studentsMap = new HashMap<>();
+
+    StudentDB(ArrayList<Student> newStudents){
+        for(Student stud : newStudents){
+            studentsMap.put(stud.getId(), stud);
+        }
     }
-
-    public Student getStudent(int index){
-        return this.students[index];
+    public Student getStudent(String id){
+        return studentsMap.get(id);
+    }
+    public HashMap<String, Student> getStudentList(){
+        return studentsMap;
+    }
+    public void addStudent(Student newStudent){
+        this.studentsMap.put(newStudent.getId(), newStudent);
+    }
+    public void removeStudent(Student byeStudent){
+        studentsMap.remove(byeStudent.getId(), byeStudent);
     }
 
 
